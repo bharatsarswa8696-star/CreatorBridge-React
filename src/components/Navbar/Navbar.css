@@ -1,0 +1,65 @@
+.navbar{
+    position:fixed;
+    top:20px;
+    left:0;
+    width:100%;
+    padding:0 25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:100;
+}
+
+
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:24px;
+}
+
+.btn-signin{
+    text-decoration:none;
+    color:white;
+
+    padding:10px 24px;
+
+    border:1px solid rgba(223,138,197,.4);
+    border-radius:999px;
+
+    transition:.3s ease;
+}
+
+.btn-signin:hover{
+    background:#df8ac5;
+}
+
+.about-link{
+    text-decoration:none;
+    color:white;
+    font-weight:600;
+}
+.logo{
+    display:flex;
+    align-items:center;
+    gap:8px;
+
+    font-size:18px;
+    font-weight:800;
+    color:#fff;
+    letter-spacing:1px;
+}
+
+.logo span {
+    color: #ffffff;
+}
+
+.logo-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #c86dd7;
+    box-shadow: 0 0 15px rgba(200, 109, 215, 0.8);
+}

@@ -1,0 +1,198 @@
+.left-panel{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+
+    position:relative;
+    z-index:2;
+}
+h1{
+    font-size:5.5rem;
+    line-height:.9;
+    font-weight:800;
+
+    letter-spacing:-3px;
+
+    margin-bottom:12px;
+}
+
+h1 span{
+    color:#df8ac5;
+}
+.subtitle{
+    color:#c8bcc8;
+
+    font-size:1.1rem;
+    font-weight:600;
+
+    line-height:1.5;
+
+    margin-bottom:24px;
+}
+
+/* CARDS */
+.cards{
+    display:flex;
+    flex-direction:column;
+
+    gap:12px;
+}
+
+/* CARD */
+.card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:22px 30px;
+
+    background:rgba(255,255,255,.03);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-radius:24px;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+
+    border-color:rgba(223,138,197,.55);
+
+    box-shadow:
+        0 0 30px rgba(223,138,197,.15);
+}
+
+.card h2{
+    font-size:1.7rem;
+    font-weight:700;
+
+    margin-bottom:5px;
+}
+
+.card p{
+    color:#b4a7b2;
+    font-size:1rem;
+}
+
+/* ARROW */
+.arrow{
+    width:60px;
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-size:1.7rem;
+
+    border:1px solid rgba(223,138,197,.35);
+
+    background:rgba(223,138,197,.06);
+
+    transition:.3s ease;
+}
+
+.card:hover .arrow{
+    background:#df8ac5;
+    color:white;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:18px;
+}
+
+.footer p{
+    margin-bottom:8px;
+
+    font-size:1rem;
+    font-weight:600;
+}
+
+.footer a{
+    color:#f2aedc;
+
+    text-decoration:none;
+
+    border-bottom:2px solid #f2aedc;
+
+    transition:.3s;
+}
+
+.footer a:hover{
+    color:white;
+    border-color:white;
+}
+
+/* STARS */
+.star{
+    position:absolute;
+
+    color:#df8ac5;
+
+    animation:twinkle 3s infinite ease-in-out;
+
+    pointer-events:none;
+}
+
+.star1{
+    top:10px;
+    right:40px;
+    font-size:20px;
+}
+
+.star2{
+    top:250px;
+    left:-15px;
+    font-size:16px;
+}
+
+.star3{
+    bottom:40px;
+    right:60px;
+    font-size:20px;
+}
+
+@keyframes twinkle{
+    0%,100%{
+        opacity:.3;
+        transform:scale(1);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.3);
+    }
+}
+.auth-left{
+
+animation:fadeUp .5s ease;
+
+}
+
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+transform:translateX(-30px);
+
+}
+
+to{
+
+opacity:1;
+transform:translateX(0);
+
+}
+
+}
