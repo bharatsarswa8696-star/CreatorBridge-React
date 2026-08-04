@@ -1,114 +1,182 @@
 import "./SignupForm.css";
 
 function SignupForm({
-  fullName,
-  email,
-  password,
-  confirmPassword,
-  setFullName,
-  setEmail,
-  setPassword,
-  setConfirmPassword,
-  onSubmit,
-  backHome,
-}) {
-  return (
-    <div className="auth-left">
 
-      <div className="signup-content">
+    onSubmit,
 
-        <h1 className="signup-title">
-          First,<br />
-          secure<br />
-          <span>your spot.</span>
-        </h1>
+    fullName,
+    email,
+    password,
+    confirmPassword,
 
-        <p className="auth-subtitle">
-          Your email &amp; password. The keys to your creator account.
-        </p>
+    setFullName,
+    setEmail,
+    setPassword,
+    setConfirmPassword,
 
-        <form
-          className="signup-form"
-          onSubmit={onSubmit}
-        >
+    errors,
 
-          <label>FULL NAME</label>
+    backHome
 
-          <input
-            type="text"
-            placeholder="Enter your full name"
-            value={fullName}
-            onChange={(e)=>setFullName(e.target.value)}
-          />
+}){
 
-          <label>EMAIL</label>
+return(
 
-          <input
-            type="email"
-            placeholder="you@example.com"
-            value={email}
-            onChange={(e)=>setEmail(e.target.value)}
-          />
+<div className="auth-left">
 
-          <label>PASSWORD</label>
+<div className="signup-content">
 
-          <input
-            type="password"
-            placeholder="Enter Password"
-            value={password}
-            onChange={(e)=>setPassword(e.target.value)}
-          />
+<h1 className="signup-title">
 
-          <div className="password-rules">
+First,<br/>
 
-            <span>8+ Characters</span>
+secure<br/>
 
-            <span>Uppercase</span>
+<span>your spot.</span>
 
-            <span>Lowercase</span>
+</h1>
 
-            <span>Number</span>
+<p className="auth-subtitle">
 
-            <span>Special Character</span>
+Your email & password. The keys to your creator account.
 
-          </div>
+</p>
 
-          <label>CONFIRM PASSWORD</label>
+<form
+className="signup-form"
+onSubmit={onSubmit}
+>
 
-          <input
-            type="password"
-            placeholder="Confirm Password"
-            value={confirmPassword}
-            onChange={(e)=>setConfirmPassword(e.target.value)}
-          />
+<label>FULL NAME</label>
 
-          <button
-            type="submit"
-            className="login-btn"
-          >
-            Continue
-          </button>
+<input
+type="text"
+placeholder="Enter your full name"
+value={fullName}
+onChange={(e)=>setFullName(e.target.value)}
+className={errors.fullName ? "error-input" : ""}
+/>
 
-        </form>
+{errors.fullName &&
 
-        <div className="back-link">
+<p className="error-text">
 
-          <a
-            href="#"
-            onClick={(e)=>{
-              e.preventDefault();
-              backHome();
-            }}
-          >
-            ← Back to Home
-          </a>
+{errors.fullName}
 
-        </div>
+</p>
 
-      </div>
+}
 
-    </div>
-  );
+<label>EMAIL</label>
+
+<input
+type="email"
+placeholder="you@example.com"
+value={email}
+onChange={(e)=>setEmail(e.target.value)}
+className={errors.email ? "error-input" : ""}
+/>
+
+{errors.email &&
+
+<p className="error-text">
+
+{errors.email}
+
+</p>
+
+}
+
+<label>PASSWORD</label>
+
+<input
+type="password"
+placeholder="Enter Password"
+value={password}
+onChange={(e)=>setPassword(e.target.value)}
+className={errors.password ? "error-input" : ""}
+/>
+
+{errors.password &&
+
+<p className="error-text">
+
+{errors.password}
+
+</p>
+
+}
+
+<div className="password-rules">
+
+<span>8+ Characters</span>
+
+<span>Uppercase</span>
+
+<span>Lowercase</span>
+
+<span>Number</span>
+
+<span>Special Character</span>
+
+</div>
+
+<label>CONFIRM PASSWORD</label>
+
+<input
+type="password"
+placeholder="Confirm Password"
+value={confirmPassword}
+onChange={(e)=>setConfirmPassword(e.target.value)}
+className={errors.confirmPassword ? "error-input" : ""}
+/>
+
+{errors.confirmPassword &&
+
+<p className="error-text">
+
+{errors.confirmPassword}
+
+</p>
+
+}
+
+<button
+type="submit"
+className="login-btn"
+>
+
+Continue
+
+</button>
+
+</form>
+
+<p className="back-link">
+
+<a
+href="#"
+onClick={(e)=>{
+
+e.preventDefault();
+
+backHome();
+
+}}
+>
+
+← Back to Home
+
+</a>
+
+</p>
+
+</div>
+
+</div>
+
+);
+
 }
 
 export default SignupForm;

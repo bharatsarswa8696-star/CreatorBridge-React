@@ -4,36 +4,95 @@ import SignupForm from "../Auth/SignupForm";
 import LoginForm from "../Auth/LoginForm";
 
 function LeftPanel({
+
 view,
 role,
 animate,
+
 onCreator,
 onBrand,
 onLogin,
-backHome
+backHome,
+
+onSignupSubmit,
+onLoginSubmit,
+
+fullName,
+email,
+password,
+confirmPassword,
+
+setFullName,
+setEmail,
+setPassword,
+setConfirmPassword,
+
+loginEmail,
+loginPassword,
+
+setLoginEmail,
+setLoginPassword,
+
+errors,
+loginErrors
+
 }) {
 
     if (view === "signup") {
 
         return (
+
             <SignupForm
+
                 role={role}
+
                 backHome={backHome}
+
+                onSubmit={onSignupSubmit}
+
+                fullName={fullName}
+                email={email}
+                password={password}
+                confirmPassword={confirmPassword}
+
+                setFullName={setFullName}
+                setEmail={setEmail}
+                setPassword={setPassword}
+                setConfirmPassword={setConfirmPassword}
+
+                errors={errors}
+
             />
+
         );
 
     }
 
-    if (view === "login") {
+ if (view === "login") {
 
-        return (
-            <LoginForm
-                backHome={backHome}
-                onSignup={() => onCreator()}
-            />
-        );
+    return (
 
-    }
+        <LoginForm
+
+            email={loginEmail}
+            password={loginPassword}
+
+            setEmail={setLoginEmail}
+            setPassword={setLoginPassword}
+
+            errors={loginErrors}
+
+            onSubmit={onLoginSubmit}
+
+            backHome={backHome}
+
+            onSignup={()=>onCreator()}
+
+        />
+
+    );
+
+}
 
     return (
 
@@ -44,14 +103,20 @@ backHome
             <div className="star star3">✦</div>
 
             <h1>
+
                 Connect.<br />
+
                 Collaborate.<br />
+
                 <span>Grow.</span>
+
             </h1>
 
             <p className="subtitle">
+
                 The platform where creators and brands
                 discover opportunities and collaborate.
+
             </p>
 
             <div className="cards">
@@ -108,7 +173,7 @@ backHome
 
                     <a
                         href="#"
-                        onClick={(e) => {
+                        onClick={(e)=>{
 
                             e.preventDefault();
 
