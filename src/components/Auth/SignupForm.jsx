@@ -2,7 +2,7 @@ import "./SignupForm.css";
 
 function SignupForm({
 
-    onSubmit,
+    onSignupSubmit,
 
     fullName,
     email,
@@ -44,7 +44,7 @@ Your email & password. The keys to your creator account.
 
 <form
 className="signup-form"
-onSubmit={onSubmit}
+onSubmit={onSignupSubmit}
 >
 
 <label>FULL NAME</label>

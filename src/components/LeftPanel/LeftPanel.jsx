@@ -48,7 +48,7 @@ loginErrors
 
                 backHome={backHome}
 
-                onSubmit={onSignupSubmit}
+                onSignupSubmit={onSignupSubmit}
 
                 fullName={fullName}
                 email={email}

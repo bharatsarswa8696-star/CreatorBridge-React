@@ -4,6 +4,8 @@ import Navbar from "../../components/Navbar/Navbar";
 import LeftPanel from "../../components/LeftPanel/LeftPanel";
 import RightPanel from "../../components/RightPanel/RightPanel";
 
+import { signupUser } from "../../services/authService";
+
 import "./Home.css";
 
 function Home() {
@@ -23,7 +25,7 @@ function Home() {
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
 
-  // Errors
+  // Signup Errors
   const [errors, setErrors] = useState({
     fullName: "",
     email: "",
@@ -31,6 +33,7 @@ function Home() {
     confirmPassword: ""
   });
 
+  // Login Errors
   const [loginErrors, setLoginErrors] = useState({
     email: "",
     password: ""
@@ -46,7 +49,7 @@ function Home() {
 
       setAnimate(false);
 
-    }, 300);
+    },300);
 
   }
 
@@ -66,27 +69,89 @@ function Home() {
 
   function backHome(){
 
+    setFullName("");
+    setEmail("");
+    setPassword("");
+    setConfirmPassword("");
+
+    setErrors({
+      fullName:"",
+      email:"",
+      password:"",
+      confirmPassword:""
+    });
+
     changeView("home");
 
   }
 
   // ---------------- Signup ----------------
 
-  function handleSignupSubmit(e){
+  async function handleSignupSubmit(e){
 
     e.preventDefault();
 
-    console.log({
+    let newErrors={
+      fullName:"",
+      email:"",
+      password:"",
+      confirmPassword:""
+    };
 
-      role,
+    if(fullName.trim()===""){
+      newErrors.fullName="Full name is required";
+    }
 
-      fullName,
+    if(email.trim()===""){
+      newErrors.email="Email is required";
+    }
 
-      email,
+    if(password.length<8){
+      newErrors.password="Minimum 8 characters";
+    }
 
-      password
+    if(password!==confirmPassword){
+      newErrors.confirmPassword="Passwords do not match";
+    }
 
-    });
+    setErrors(newErrors);
+
+    if(
+      newErrors.fullName||
+      newErrors.email||
+      newErrors.password||
+      newErrors.confirmPassword
+    ){
+      return;
+    }
+
+    try{
+
+      const result=await signupUser({
+
+        fullName,
+        email,
+        password,
+        role
+
+      });
+
+      alert(result.message);
+
+      setFullName("");
+      setEmail("");
+      setPassword("");
+      setConfirmPassword("");
+
+      openLogin();
+
+    }
+
+    catch(error){
+
+      alert(error.message);
+
+    }
 
   }
 
@@ -96,106 +161,89 @@ function Home() {
 
     e.preventDefault();
 
-    let newErrors = {
-
-        email:"",
-        password:""
-
+    let newErrors={
+      email:"",
+      password:""
     };
 
     if(loginEmail.trim()===""){
-
-        newErrors.email="Email is required.";
-
+      newErrors.email="Email is required.";
     }
 
     if(loginPassword.trim()===""){
-
-        newErrors.password="Password is required.";
-
+      newErrors.password="Password is required.";
     }
 
     setLoginErrors(newErrors);
 
     if(
-        newErrors.email ||
-        newErrors.password
+      newErrors.email||
+      newErrors.password
     ){
-
-        return;
-
+      return;
     }
 
     console.log({
 
-        loginEmail,
-        loginPassword
+      loginEmail,
+      loginPassword
 
     });
 
-}
+  }
 
   return(
 
-<div className="home">
+    <div className="home">
 
-<Navbar onLogin={openLogin}/>
+      <Navbar onLogin={openLogin}/>
 
-<div className="main-layout">
+      <div className="main-layout">
 
-<LeftPanel
+        <LeftPanel
 
-view={view}
+          view={view}
+          role={role}
+          animate={animate}
 
-role={role}
+          onCreator={()=>openSignup("creator")}
+          onBrand={()=>openSignup("brand")}
+          onLogin={openLogin}
+          backHome={backHome}
 
-animate={animate}
+          onSignupSubmit={handleSignupSubmit}
+          onLoginSubmit={handleLoginSubmit}
 
-onCreator={()=>openSignup("creator")}
+          fullName={fullName}
+          email={email}
+          password={password}
+          confirmPassword={confirmPassword}
 
-onBrand={()=>openSignup("brand")}
+          setFullName={setFullName}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          setConfirmPassword={setConfirmPassword}
 
-onLogin={openLogin}
+          loginEmail={loginEmail}
+          loginPassword={loginPassword}
 
-backHome={backHome}
+          setLoginEmail={setLoginEmail}
+          setLoginPassword={setLoginPassword}
 
-onSignupSubmit={handleSignupSubmit}
+          errors={errors}
+          loginErrors={loginErrors}
 
-onLoginSubmit={handleLoginSubmit}
+        />
 
-fullName={fullName}
-email={email}
-password={password}
-confirmPassword={confirmPassword}
+        <RightPanel
+          onCampaignClick={openLogin}
+        />
 
-setFullName={setFullName}
-setEmail={setEmail}
-setPassword={setPassword}
-setConfirmPassword={setConfirmPassword}
+      </div>
 
-loginEmail={loginEmail}
-loginPassword={loginPassword}
+    </div>
 
-setLoginEmail={setLoginEmail}
-setLoginPassword={setLoginPassword}
-
-errors={errors}
-
-loginErrors={loginErrors}
-
-/>
-
-<RightPanel
-
-onCampaignClick={openLogin}
-
-/>
-
-</div>
-
-</div>
-
-);
+  );
 
 }
 
