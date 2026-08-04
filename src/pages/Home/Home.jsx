@@ -4,7 +4,7 @@ import Navbar from "../../components/Navbar/Navbar";
 import LeftPanel from "../../components/LeftPanel/LeftPanel";
 import RightPanel from "../../components/RightPanel/RightPanel";
 
-import { signupUser } from "../../services/authService";
+import { signupUser, loginUser } from "../../services/authService";
 
 import "./Home.css";
 
@@ -157,40 +157,75 @@ function Home() {
 
   // ---------------- Login ----------------
 
-  function handleLoginSubmit(e){
+ async function handleLoginSubmit(e){
 
     e.preventDefault();
 
-    let newErrors={
-      email:"",
-      password:""
+    let newErrors = {
+        email:"",
+        password:""
     };
 
     if(loginEmail.trim()===""){
-      newErrors.email="Email is required.";
+        newErrors.email="Email is required.";
     }
 
     if(loginPassword.trim()===""){
-      newErrors.password="Password is required.";
+        newErrors.password="Password is required.";
     }
 
     setLoginErrors(newErrors);
 
     if(
-      newErrors.email||
-      newErrors.password
+        newErrors.email ||
+        newErrors.password
     ){
-      return;
+        return;
     }
 
-    console.log({
+    try{
 
-      loginEmail,
-      loginPassword
+        const result = await loginUser({
 
-    });
+            email: loginEmail,
+            password: loginPassword
 
-  }
+        });
+
+        // Save JWT
+        localStorage.setItem("token", result.token);
+
+        // Save logged in user
+        localStorage.setItem(
+            "user",
+            JSON.stringify(result.user)
+        );
+
+        alert(result.message);
+
+        // Clear login form
+        setLoginEmail("");
+        setLoginPassword("");
+
+        // Temporary
+        if(result.user.role==="creator"){
+
+            alert("Creator Dashboard Coming Next 🚀");
+
+        }else{
+
+            alert("Brand Dashboard Coming Next 🚀");
+
+        }
+
+    }
+    catch(error){
+
+        alert(error.message);
+
+    }
+
+}
 
   return(
 
