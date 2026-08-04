@@ -6,7 +6,12 @@ import RightPanel from "../../components/RightPanel/RightPanel";
 
 import "./Home.css";
 
-
+const [errors, setErrors] = useState({
+  fullName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+});
 function Home(){
 
     const [view,setView] = useState("home");

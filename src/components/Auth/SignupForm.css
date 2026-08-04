@@ -1,17 +1,19 @@
 .auth-left{
-    width:100%;
+   width:100%;
     height:100%;
-
-    padding:20px 40px;
-
     display:flex;
     flex-direction:column;
     justify-content:center;
+    padding-right:40px;
+
+    animation:fadeUp .5s ease;
 }
 
 .auth-left h1{
-    font-size:4.5rem;
-    line-height:.9;
+     font-size:5.8rem;
+line-height:.88;
+letter-spacing:-3px;
+    font-weight:800;
     margin-bottom:15px;
 }
 
@@ -21,13 +23,13 @@
 
 .auth-subtitle{
     color:#b4a7b2;
-    margin-bottom:35px;
+   margin-bottom:45px;
     font-size:1.1rem;
 }
 
 .auth-left label{
     display:block;
-    margin-top:25px;
+    margin-top:22px;
     margin-bottom:10px;
     font-size:.9rem;
     font-weight:700;
@@ -36,11 +38,11 @@
 
 .auth-left input{
     width:100%;
-    height:65px;
+    height:68px;
 
     padding:0 20px;
 
-    border-radius:18px;
+    border-radius:22px;
 
     background:rgba(255,255,255,.03);
     border:1px solid rgba(255,255,255,.08);
@@ -61,7 +63,8 @@
     display:flex;
     flex-wrap:wrap;
     gap:10px;
-    margin-top:20px;
+    margin-top:18px;
+margin-bottom:10px;
 }
 
 .password-rules span{
@@ -89,7 +92,7 @@
 
     cursor:pointer;
 
-    margin-top:25px;
+    margin-top:32px;
 
     transition:.3s ease;
 }
@@ -115,4 +118,28 @@
         font-size:3rem;
     }
 
+}
+.input-error{
+    color:#ff7a7a;
+    font-size:.9rem;
+    margin-top:8px;
+    margin-left:5px;
+
+    animation:fadeError .25s ease;
+}
+
+.input-invalid{
+    border:1px solid #ff6b6b !important;
+    box-shadow:0 0 12px rgba(255,107,107,.25);
+}
+
+@keyframes fadeError{
+    from{
+        opacity:0;
+        transform:translateY(-6px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }

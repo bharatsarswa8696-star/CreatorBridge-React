@@ -1,7 +1,6 @@
 import "./SignupForm.css";
 
 function SignupForm({
-  onSubmit,
   fullName,
   email,
   password,
@@ -10,94 +9,103 @@ function SignupForm({
   setEmail,
   setPassword,
   setConfirmPassword,
+  onSubmit,
   backHome,
 }) {
   return (
     <div className="auth-left">
 
-      <h1>
-        First,<br />
-        secure<br />
-        <span>
-          your<br />
-          spot.
-        </span>
-      </h1>
+      <div className="signup-content">
 
-      <p className="auth-subtitle">
-        Your email &amp; password. The keys to your creator account.
-      </p>
+        <h1 className="signup-title">
+          First,<br />
+          secure<br />
+          <span>your spot.</span>
+        </h1>
 
-      <form onSubmit={onSubmit}>
+        <p className="auth-subtitle">
+          Your email &amp; password. The keys to your creator account.
+        </p>
 
-        <label>FULL NAME</label>
+        <form
+          className="signup-form"
+          onSubmit={onSubmit}
+        >
 
-        <input
-          type="text"
-          placeholder="Enter your full name"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
-          required
-        />
+          <label>FULL NAME</label>
 
-        <label>EMAIL</label>
+          <input
+            type="text"
+            placeholder="Enter your full name"
+            value={fullName}
+            onChange={(e)=>setFullName(e.target.value)}
+          />
 
-        <input
-          type="email"
-          placeholder="you@example.com"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+          <label>EMAIL</label>
 
-        <label>PASSWORD</label>
+          <input
+            type="email"
+            placeholder="you@example.com"
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
+          />
 
-        <input
-          type="password"
-          placeholder="Enter Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+          <label>PASSWORD</label>
 
-        <div className="password-rules">
-          <span>8+ Characters</span>
-          <span>Uppercase</span>
-          <span>Lowercase</span>
-          <span>Number</span>
-          <span>Special Character</span>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
+          />
+
+          <div className="password-rules">
+
+            <span>8+ Characters</span>
+
+            <span>Uppercase</span>
+
+            <span>Lowercase</span>
+
+            <span>Number</span>
+
+            <span>Special Character</span>
+
+          </div>
+
+          <label>CONFIRM PASSWORD</label>
+
+          <input
+            type="password"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e)=>setConfirmPassword(e.target.value)}
+          />
+
+          <button
+            type="submit"
+            className="login-btn"
+          >
+            Continue
+          </button>
+
+        </form>
+
+        <div className="back-link">
+
+          <a
+            href="#"
+            onClick={(e)=>{
+              e.preventDefault();
+              backHome();
+            }}
+          >
+            ← Back to Home
+          </a>
+
         </div>
 
-        <label>CONFIRM PASSWORD</label>
-
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-          required
-        />
-
-        <button
-          type="submit"
-          className="login-btn"
-        >
-          Continue
-        </button>
-
-      </form>
-
-      <p className="back-link">
-        <a
-          href="#"
-          onClick={(e) => {
-            e.preventDefault();
-            backHome();
-          }}
-        >
-          ← Back to Home
-        </a>
-      </p>
+      </div>
 
     </div>
   );

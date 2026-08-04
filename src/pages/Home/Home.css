@@ -8,22 +8,22 @@ width:100%;
 
 
 .main-layout{
+    width:100%;
+    min-height:100vh;
 
-width:100%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
 
-min-height:100vh;
+    gap:50px;
 
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:50px;
-
-padding:120px 60px 40px;
-
+    padding:120px 60px 40px;
 }
+
 .left-panel{
+    width:100%;
+    min-width:0;
+}
 
-transition:all .4s ease;
-
+.right-panel{
+    width:100%;
 }
