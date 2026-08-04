@@ -96,15 +96,44 @@ function Home() {
 
     e.preventDefault();
 
+    let newErrors = {
+
+        email:"",
+        password:""
+
+    };
+
+    if(loginEmail.trim()===""){
+
+        newErrors.email="Email is required.";
+
+    }
+
+    if(loginPassword.trim()===""){
+
+        newErrors.password="Password is required.";
+
+    }
+
+    setLoginErrors(newErrors);
+
+    if(
+        newErrors.email ||
+        newErrors.password
+    ){
+
+        return;
+
+    }
+
     console.log({
 
-      loginEmail,
-
-      loginPassword
+        loginEmail,
+        loginPassword
 
     });
 
-  }
+}
 
   return(
 
