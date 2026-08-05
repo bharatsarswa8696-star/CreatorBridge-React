@@ -1,0 +1,21 @@
+.creator-layout{
+
+    display:flex;
+
+    min-height:100vh;
+
+    background:#09040d;
+
+}
+
+.content{
+
+    flex:1;
+
+    margin-left:260px;
+
+    padding:40px;
+
+    color:white;
+
+}

@@ -1,0 +1,31 @@
+.apply-btn{
+
+    margin-top:20px;
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#df8ac5;
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.apply-btn:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 0 15px rgba(223,138,197,.3);
+
+}

@@ -1,0 +1,29 @@
+.analytics-section{
+
+    margin:40px 0;
+
+}
+
+.chart-card{
+
+    background:#171717;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    padding:30px;
+
+}
+
+.chart-card h2{
+
+    margin-bottom:25px;
+
+}
+
+.chart-card canvas{
+
+    max-height:380px;
+
+}
