@@ -1,16 +1,21 @@
 import "./CreatorDashboard.css";
 
-import ProfileCard from "../../../components/Creator/Dashboard/ProfileCard/ProfileCard";
-import CategoryGrid from "../../../components/Creator/Dashboard/CategoryGrid/CategoryGrid";
-import StatsGrid from "../../../components/Creator/Dashboard/StatsGrid/StatsGrid";
-import AnalyticsChart from "../../../components/Creator/Dashboard/AnalyticsChart/AnalyticsChart";
-import CampaignGrid from "../../../components/Creator/Dashboard/CampaignGrid/CampaignGrid";
+import Sidebar from "../../../components/Creator/Sidebar/Sidebar";
+import Topbar from "../../../components/Creator/Topbar/Topbar";
+import ProfileCard from "../../../components/Creator/ProfileCard/ProfileCard";
+import CategoryGrid from "../../../components/Creator/CategoryGrid/CategoryGrid";
+import StatsGrid from "../../../components/Creator/StatsGrid/StatsGrid";
+import AnalyticsChart from "../../../components/Creator/AnalyticsChart/AnalyticsChart";
+import CampaignGrid from "../../../components/Creator/CampaignGrid/CampaignGrid";
 function CreatorDashboard() {
 
     return (
 
         <>
-
+       <Topbar
+    title="Welcome, Creator 👋"
+    subtitle="Manage your creator account."
+/>
             <ProfileCard />
 
             <CategoryGrid />

@@ -13,6 +13,10 @@
     border-radius:20px;
 
     padding:30px;
+    
+    width:100%;
+
+    max-width:100%;
 
 }
 
@@ -25,5 +29,12 @@
 .chart-card canvas{
 
     max-height:380px;
+
+}
+
+
+canvas{
+
+    max-width:100% !important;
 
 }

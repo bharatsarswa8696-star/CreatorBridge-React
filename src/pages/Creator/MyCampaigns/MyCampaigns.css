@@ -1,0 +1,67 @@
+.my-campaigns{
+
+    width:100%;
+
+}
+
+.my-campaigns h1{
+
+    margin-bottom:35px;
+
+}
+
+.campaign-card{
+
+    background:#171717;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:25px;
+
+    margin-bottom:25px;
+
+}
+
+.campaign-card h2{
+
+    margin-bottom:15px;
+
+}
+
+.campaign-card p{
+
+    margin-bottom:10px;
+
+}
+
+.campaign-card button{
+
+    margin-top:15px;
+
+    background:#df8ac5;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.empty-card{
+
+    background:#171717;
+
+    border-radius:18px;
+
+    padding:40px;
+
+    text-align:center;
+
+}

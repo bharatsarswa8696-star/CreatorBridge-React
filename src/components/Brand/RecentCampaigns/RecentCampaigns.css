@@ -1,0 +1,65 @@
+.recent-campaigns{
+
+    margin-top:40px;
+
+}
+
+
+.section-title{
+
+    font-size:1.8rem;
+
+    margin-bottom:25px;
+
+}
+
+
+.campaign-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+}
+
+
+.campaign-card{
+
+    background:#171717;
+
+    border-radius:18px;
+
+    padding:25px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.3s;
+
+}
+
+
+.campaign-card:hover{
+
+    transform:translateY(-5px);
+
+    border-color:#df8ac5;
+
+}
+
+
+.campaign-card h3{
+
+    color:white;
+
+    margin-bottom:12px;
+
+}
+
+
+.campaign-card p{
+
+    color:#b8aeb8;
+
+}

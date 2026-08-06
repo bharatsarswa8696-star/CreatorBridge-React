@@ -8,6 +8,8 @@ import {
     FaUser,
     FaCog,
     FaSignOutAlt,
+    FaUsers,
+    FaPlus
 } from "react-icons/fa";
 
 import { MdCampaign } from "react-icons/md";
@@ -15,11 +17,114 @@ import { HiDocumentText } from "react-icons/hi2";
 
 import "./Sidebar.css";
 
-function Sidebar() {
+
+function Sidebar({ role = "creator" }) {
+
+
+    const creatorMenu = [
+
+        {
+            name: "Dashboard",
+            path: "/creator/dashboard",
+            icon: <FaHome />
+        },
+
+        {
+            name: "Notifications",
+            path: "/creator/notifications",
+            icon: <FaBell />
+        },
+
+        {
+            name: "Campaigns",
+            path: "/creator/campaigns",
+            icon: <MdCampaign />
+        },
+
+        {
+            name: "My Campaigns",
+            path: "/creator/my-campaigns",
+            icon: <HiDocumentText />
+        },
+
+        {
+            name: "Wallet",
+            path: "/creator/wallet",
+            icon: <FaWallet />
+        },
+
+        {
+            name: "Saved",
+            path: "/creator/saved",
+            icon: <FaHeart />
+        },
+
+        {
+            name: "Profile",
+            path: "/creator/profile",
+            icon: <FaUser />
+        },
+
+        {
+            name: "Settings",
+            path: "/creator/settings",
+            icon: <FaCog />
+        }
+
+    ];
+
+
+    const brandMenu = [
+
+        {
+            name: "Dashboard",
+            path: "/brand/dashboard",
+            icon: <FaHome />
+        },
+
+        {
+            name: "Notifications",
+            path: "/brand/notifications",
+            icon: <FaBell />
+        },
+
+        {
+            name: "My Campaigns",
+            path: "/brand/campaigns",
+            icon: <MdCampaign />
+        },
+
+        {
+            name: "Create Campaign",
+            path: "/brand/create-campaign",
+            icon: <FaPlus />
+        },
+
+        {
+            name: "Applicants",
+            path: "/brand/applicants",
+            icon: <FaUsers />
+        },
+
+        {
+            name: "Settings",
+            path: "/brand/settings",
+            icon: <FaCog />
+        }
+
+    ];
+
+
+    const menu = role === "brand"
+        ? brandMenu
+        : creatorMenu;
+
+
 
     return (
 
         <aside className="sidebar">
+
 
             <div className="logo">
 
@@ -29,105 +134,35 @@ function Sidebar() {
 
             </div>
 
+
             <ul className="menu">
 
-                <li className="menu-item">
 
-                    <NavLink to="/creator/dashboard">
+                {
+                    menu.map((item)=>(
+                        
+                        <li 
+                        className="menu-item"
+                        key={item.name}
+                        >
 
-                        <FaHome />
+                            <NavLink to={item.path}>
 
-                        Dashboard
+                                {item.icon}
 
-                    </NavLink>
+                                {item.name}
 
-                </li>
+                            </NavLink>
 
-                <li className="menu-item">
 
-                    <NavLink to="/creator/notifications">
+                        </li>
 
-                        <FaBell />
+                    ))
+                }
 
-                        Notifications
-
-                    </NavLink>
-
-                </li>
-
-                <li className="menu-item">
-
-                    <NavLink to="/creator/campaigns">
-
-                        <MdCampaign />
-
-                        Campaigns
-
-                    </NavLink>
-
-                </li>
-
-                <li className="menu-item">
-
-                    <NavLink to="/creator/applications">
-
-                        <HiDocumentText />
-
-                        My Applications
-
-                    </NavLink>
-
-                </li>
-
-                <li className="menu-item">
-
-                    <NavLink to="/creator/wallet">
-
-                        <FaWallet />
-
-                        Wallet
-
-                    </NavLink>
-
-                </li>
-
-                <li className="menu-item">
-
-                    <NavLink to="/creator/saved">
-
-                        <FaHeart />
-
-                        Saved
-
-                    </NavLink>
-
-                </li>
-
-                <li className="menu-item">
-
-                    <NavLink to="/creator/profile">
-
-                        <FaUser />
-
-                        Profile
-
-                    </NavLink>
-
-                </li>
-
-                <li className="menu-item">
-
-                    <NavLink to="/creator/settings">
-
-                        <FaCog />
-
-                        Settings
-
-                    </NavLink>
-
-                </li>
 
             </ul>
+
 
             <button id="logoutBtn">
 
@@ -137,10 +172,12 @@ function Sidebar() {
 
             </button>
 
+
         </aside>
 
     );
 
 }
+
 
 export default Sidebar;

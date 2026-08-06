@@ -2,19 +2,16 @@ import "./CreatorLayout.css";
 import { Outlet } from "react-router-dom";
 
 import Sidebar from "../components/Creator/Sidebar/Sidebar";
-import Topbar from "../components/Creator/Topbar/Topbar";
 
-function CreatorLayout() {
+
+function CreatorLayout(){
 
     return (
 
         <div className="creator-layout">
 
-            <Sidebar />
-
+            <Sidebar role="creator" />
             <main className="content">
-
-                <Topbar />
 
                 <Outlet />
 
@@ -25,5 +22,6 @@ function CreatorLayout() {
     );
 
 }
+
 
 export default CreatorLayout;

@@ -1,5 +1,5 @@
 import "./RightPanel.css";
-import CampaignCard from "../Creator/Dashboard/CampaignCard/CampaignCard";
+import CampaignCard from "../Creator/CampaignCard/CampaignCard";
 
 
 function RightPanel({onCampaignClick}) {

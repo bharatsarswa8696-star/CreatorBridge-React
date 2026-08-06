@@ -1,0 +1,62 @@
+.submit-work{
+
+    max-width:850px;
+
+}
+
+.submit-work h1{
+
+    margin-bottom:30px;
+
+}
+
+.submit-work{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+.submit-work input,
+.submit-work textarea{
+
+    background:#171717;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+}
+
+.submit-work textarea{
+
+    min-height:150px;
+
+    resize:none;
+
+}
+
+.submit-work button{
+
+    background:#df8ac5;
+
+    color:white;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}

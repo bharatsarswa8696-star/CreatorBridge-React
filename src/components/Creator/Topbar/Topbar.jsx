@@ -1,22 +1,16 @@
 import "./Topbar.css";
 
-function Topbar() {
+function Topbar({ title, subtitle }) {
 
     return (
 
-        <header className="topbar">
+        <div className="topbar">
 
-            <div className="user-info">
+            <h1>{title}</h1>
 
-                <h1>Welcome 👋</h1>
+            <p>{subtitle}</p>
 
-                <p>
-                    Manage your creator account
-                </p>
-
-            </div>
-
-        </header>
+        </div>
 
     );
 

@@ -1,0 +1,117 @@
+.campaign-page{
+
+    width:100%;
+
+}
+
+.campaign-page h1{
+
+    margin-bottom:35px;
+
+}
+
+.campaign-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(330px,1fr));
+
+    gap:30px;
+
+}
+
+.campaign-card{
+
+    background:#171717;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:25px;
+
+    transition:.3s;
+
+}
+
+.campaign-card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:#df8ac5;
+
+}
+
+.campaign-card h2{
+
+    margin-bottom:18px;
+
+}
+
+.campaign-card p{
+
+    color:#bdbdbd;
+
+    line-height:1.6;
+
+}
+
+.campaign-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+    margin:25px 0;
+
+}
+
+.campaign-info span{
+
+    display:flex;
+
+    justify-content:space-between;
+
+}
+
+.campaign-info strong{
+
+    color:#df8ac5;
+
+}
+
+.campaign-card button{
+
+    width:100%;
+
+    padding:14px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#df8ac5;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.empty-card{
+
+    background:#171717;
+
+    padding:40px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+}

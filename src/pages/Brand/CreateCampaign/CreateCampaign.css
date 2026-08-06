@@ -1,0 +1,76 @@
+.create-campaign-page{
+
+    max-width:900px;
+
+}
+
+
+.create-campaign-page h1{
+
+    margin-bottom:30px;
+
+}
+
+
+.campaign-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+    background:#171717;
+
+    padding:35px;
+
+    border-radius:20px;
+
+}
+
+
+.campaign-form input,
+.campaign-form select,
+.campaign-form textarea{
+
+    background:#222;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    color:white;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    font-size:1rem;
+
+}
+
+
+.campaign-form textarea{
+
+    min-height:120px;
+
+    resize:none;
+
+}
+
+
+.campaign-form button{
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#df8ac5;
+
+    color:white;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+}
